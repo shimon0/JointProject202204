@@ -6,7 +6,7 @@
 <mapper namespace="com.example.jointDevelopment.repository.UserMapper">
 
     <!-- マッピング定義-->
-    <resultMap id="user" type="com.example.jointDevelopment.domain.user.model.MUser">
+    <resultMap id="user" type="com.example.jointDevelopment.domain.user.model.JointUser">
         <id column="user_id" property="userId"/>
         <result column="user_name" property="userName"/>
         <result column="email" property="email"/>
@@ -26,12 +26,12 @@
     </insert>
 
     <!-- ログインユーザー取得-->
-    <select id="finndLoginUser" resultType="User">
+    <select id="finndLoginUser" resultType="JointUser">
         select * from users where user_id = #{userId}
     </select>
 
     <!-- ユーザー複数件取得-->
-    <select id="findMany" resultType="User">
+    <select id="findMany" resultType="JointUser">
         select * from users
         <where>
             <if test="userId !=null">
